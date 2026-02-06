@@ -14,4 +14,6 @@ jobs:
       - name: build image
         run: docker build . -t francisbt03/hello-world:latest
       - name: push image to docker hub
-        run: docker push francisbt03/hello-world:latest
+        run: | 
+          docker login -u francisbt03 -p ${{ secrets.DOCKER_HUB_KEY }}
+          docker push francisbt03/hello-world:latest
